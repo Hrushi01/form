@@ -43,6 +43,7 @@ function Registration() {
                   Name:
                 </label>
                 <input
+                  className="p-1 "
                   type="name"
                   autoComplete="off"
                   name="name"
@@ -61,6 +62,7 @@ function Registration() {
                   Email:
                 </label>
                 <input
+                  className="p-1 "
                   type="email"
                   autoComplete="off"
                   name="email"
@@ -79,6 +81,7 @@ function Registration() {
                   Password:
                 </label>
                 <input
+                  className="p-1 "
                   type="password"
                   autoComplete="off"
                   name="password"
@@ -97,6 +100,7 @@ function Registration() {
                   Confirm Password:
                 </label>
                 <input
+                  className="p-1 "
                   type="password"
                   autoComplete="off"
                   name="confirm_password"

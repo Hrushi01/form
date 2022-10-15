@@ -1,10 +1,9 @@
-import "./App.css";
-import Registration from "./Registration";
+import Page from "./Page";
 
 function App() {
   return (
-    <div className="App flex justify-center align-middle mt-4 w-full">
-      <Registration />
+    <div className="App flex justify-center text-center align-middle mt-4 w-screen ">
+      <Page />
     </div>
   );
 }

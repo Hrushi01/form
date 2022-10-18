@@ -1,10 +1,7 @@
 import React, { useRef, useEffect, useState, useMemo, useContext } from "react";
 import { Form, Formik, Field, ErrorMessage, FieldArray } from "formik";
 import { signUpSchema } from "./schema";
-import { useReactToPrint } from "react-to-print";
 import Resume from "./Resume/Resume";
-import { Link } from "react-router-dom";
-import AppContext from "./AppContext";
 
 export default function Page(props) {
   const { information, setResumeInfo } = props;

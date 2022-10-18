@@ -60,7 +60,7 @@ export default function Page(props) {
                   {/* Phone number Field Below  */}
 
                   <Field
-                    type="number"
+                    type="tel"
                     name="phone"
                     placeholder="Phone"
                     className=" p-3 m-1 rounded bg-neutral-700"

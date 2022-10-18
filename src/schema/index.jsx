@@ -1,13 +1,13 @@
 import * as Yup from "yup";
+import "yup-phone";
 
 export const signUpSchema = Yup.object({
   name: Yup.string().min(2).max(25).required("Please enter your name"),
   email: Yup.string().email().required("Please enter your email"),
 
   phone: Yup.string()
-    .min(10)
-    .max(10)
-    .required("Please enter correct mobile number"),
+    .phone()
+    .required(null, true, "Please enter correct mobile number"),
   gender: Yup.string().required("Please select one"),
   git: Yup.string()
     .min(5, "mininum length 5")

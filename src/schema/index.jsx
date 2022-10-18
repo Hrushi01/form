@@ -9,6 +9,12 @@ export const signUpSchema = Yup.object({
     .max(10)
     .required("Please enter correct mobile number"),
   gender: Yup.string().required("Please select one"),
+  git: Yup.string()
+    .min(5, "mininum length 5")
+    .required("Please enter valid profile"),
+  lin: Yup.string()
+    .min(5, "mininum length 5")
+    .required("Please enter valid profile"),
   address: Yup.array().of(
     Yup.object().shape({
       country: Yup.string().required("Required"),

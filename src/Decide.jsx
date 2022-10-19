@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import Page from "./Page";
-import Resume from "./Resume/Resume";
+import Page from "./pages/Page";
+import Resume from "./pages/Resume";
 
 function Decide() {
   const [show, setShow] = useState(false);

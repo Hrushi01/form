@@ -1,6 +1,6 @@
 import { Form, Formik, Field, ErrorMessage, FieldArray } from "formik";
-import { signUpSchema } from "./schema";
-import Resume from "./Resume/Resume";
+import { signUpSchema } from "../schema";
+import Resume from "./Resume";
 
 export default function Page(props) {
   const { information, setResumeInfo, show, setShow, data, setData } = props;

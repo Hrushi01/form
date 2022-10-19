@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Form, useFormik } from "formik";
-import { signUpSchema } from "./schema/index";
+import { signUpSchema } from "../schema/index";
 import { useReactToPrint } from "react-to-print";
 import { Formik, form, Field } from "formik";
 

@@ -47,7 +47,7 @@ function Resume(props) {
           Address:
           {information.address.map((item) => {
             return (
-              <div className=" p-2 border-2 m-2  ">
+              <div className=" p-2 border-2 m-2 rounded-xl  ">
                 <div className="flex p-2 font-semibold ">
                   Country: &nbsp;
                   <div className="text-gray-500">{item.country}</div>

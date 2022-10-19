@@ -5,8 +5,6 @@ import Resume from "./Resume/Resume";
 export default function Page(props) {
   const { information, setResumeInfo, show, setShow, data, setData } = props;
 
-  // console.log(data, "props passing11");
-
   const refresh = () => {
     setShow(true);
   };
@@ -280,21 +278,10 @@ export default function Page(props) {
                     Submit
                   </button>
                 </div>
-                <div>
-                  {setData(props.values)}
-                  {/* {console.log(data, "props passing")} */}
-                  {/* {show ? (
-                    <div className="h-screen  bg-white ">
-                      <Resume  />
-                    </div>
-                  ) : (
-                    <></>
-                  )} */}
-                </div>
+                <div>{setData(props.values)}</div>
               </Form>
             )}
           </Formik>
-          {/* {console.log(data, "props passing22")} */}
         </div>
       </div>
     </div>

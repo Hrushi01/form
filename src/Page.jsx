@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useState, useMemo, useContext } from "react";
 import { Form, Formik, Field, ErrorMessage, FieldArray } from "formik";
 import { signUpSchema } from "./schema";
 import Resume from "./Resume/Resume";
 
 export default function Page(props) {
-  const { information, setResumeInfo } = props;
-  const [show, setShow] = useState(false);
+  const { information, setResumeInfo, show, setShow, data, setData } = props;
+
+  // console.log(data, "props passing11");
 
   const refresh = () => {
     setShow(true);
@@ -16,9 +16,12 @@ export default function Page(props) {
       <div className="  flex flex-col justify-center  align-middle w-screen    overflow-scroll h-full  bg-neutral-800 ">
         <div className="  flex flex-col align-middle  justify-center transition rounded-md p-3 text-white ">
           <br />
-          <h1>My Form</h1>
+          <h1 className="flex justify-center font-bold text-center text-blue-600 text-3xl pb-3">
+            Resume Details
+          </h1>
           <Formik
             initialValues={information}
+            setData={setData}
             onSubmit={(values, actions) => {
               console.log("submit clicked");
               refresh();
@@ -278,17 +281,20 @@ export default function Page(props) {
                   </button>
                 </div>
                 <div>
-                  {show ? (
+                  {setData(props.values)}
+                  {/* {console.log(data, "props passing")} */}
+                  {/* {show ? (
                     <div className="h-screen  bg-white ">
-                      <Resume information={props.values} />
+                      <Resume  />
                     </div>
                   ) : (
                     <></>
-                  )}
+                  )} */}
                 </div>
               </Form>
             )}
           </Formik>
+          {/* {console.log(data, "props passing22")} */}
         </div>
       </div>
     </div>

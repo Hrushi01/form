@@ -13,7 +13,7 @@ function Resume(props) {
   });
 
   return (
-    <div className="p-5 m-3" ref={componentRef}>
+    <div className="p-5 m-3 w-2/5  h-screen  bg-white " ref={componentRef}>
       <div className="flex justify-center font-bold text-center text-blue-600 text-3xl">
         Resume
       </div>
@@ -45,26 +45,24 @@ function Resume(props) {
 
         <div className="Address p-2 flex justify-start font-semibold  text-black ">
           Address:
-          <div className=" p-2  ">
-            <div className="flex p-2 font-semibold ">
-              Country: &nbsp;
-              <div className="text-gray-500">
-                {information?.address[0]?.country}
+          {information.address.map((item) => {
+            return (
+              <div className=" p-2 border-2 m-2  ">
+                <div className="flex p-2 font-semibold ">
+                  Country: &nbsp;
+                  <div className="text-gray-500">{item.country}</div>
+                </div>
+                <div className="flex p-2 font-semibold">
+                  City: &nbsp;
+                  <div className="text-gray-500 ">{item.city}</div>{" "}
+                </div>{" "}
+                <div className="flex p-2 font-semibold">
+                  Location: &nbsp;
+                  <div className="text-gray-500 ">{item.location}</div>
+                </div>
               </div>
-            </div>
-            <div className="flex p-2 font-semibold">
-              City: &nbsp;
-              <div className="text-gray-500 ">
-                {information?.address[0]?.city}
-              </div>{" "}
-            </div>{" "}
-            <div className="flex p-2 font-semibold">
-              Location: &nbsp;
-              <div className="text-gray-500 ">
-                {information?.address[0]?.location}
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
       <button

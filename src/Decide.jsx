@@ -4,6 +4,8 @@ import Page from "./Page";
 import Resume from "./Resume/Resume";
 
 function Decide() {
+  const [show, setShow] = useState(false);
+  const [data, setData] = useState({});
   const [resumeinfo, setResumeInfo] = useState({
     name: "",
     email: "",
@@ -23,7 +25,18 @@ function Decide() {
   });
   return (
     <div className="flex w-full justify-center align-middle text-center">
-      <Page information={resumeinfo} setResumeInfo={setResumeInfo} />;
+      {show ? (
+        <Resume information={data} />
+      ) : (
+        <Page
+          information={resumeinfo}
+          setResumeInfo={setResumeInfo}
+          show={show}
+          setShow={setShow}
+          data={data}
+          setData={setData}
+        />
+      )}
     </div>
   );
 }

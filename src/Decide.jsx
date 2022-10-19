@@ -26,7 +26,7 @@ function Decide() {
   return (
     <div className="flex w-full justify-center align-middle text-center">
       {show ? (
-        <Resume information={data} />
+        <Resume information={data} setShow={setShow} />
       ) : (
         <Page
           information={resumeinfo}

@@ -3,7 +3,7 @@ import { useState, useRef, useMemo, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
 
 function Resume(props) {
-  const { information } = props;
+  const { information, setShow } = props;
   console.log(information, "resume");
 
   const componentRef = useRef();
@@ -65,11 +65,18 @@ function Resume(props) {
           })}
         </div>
       </div>
-      <button
-        className=" bg-blue-600 text-white rounded p-2 bottom-4 "
-        onClick={handelprint}>
-        Download
-      </button>
+      <div className="flex flex-row justify-around">
+        <button
+          className=" bg-blue-600 text-white rounded p-2 bottom-4 "
+          onClick={handelprint}>
+          Download
+        </button>
+        <button
+          className=" bg-blue-600 text-white rounded p-2 bottom-4 "
+          onClick={() => setShow(false)}>
+          Build New
+        </button>
+      </div>
     </div>
   );
 }

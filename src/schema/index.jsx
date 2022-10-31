@@ -16,6 +16,7 @@ export const signUpSchema = Yup.object({
   git: Yup.string()
     .min(5, "mininum length 5")
     .required("Please enter valid profile"),
+
   lin: Yup.string()
     .min(5, "mininum length 5")
     .required("Please enter valid profile"),

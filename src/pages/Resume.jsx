@@ -1,81 +1,193 @@
 import React from "react";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
+import {
+  FaAt,
+  FaGithub,
+  FaLinkedin,
+  FaPhoneAlt,
+  FaPaperclip,
+  FaCalendarAlt,
+  FaMapMarkerAlt,
+  FaDotCircle,
+} from "react-icons/fa";
 
 function Resume(props) {
-  const { information, setShow } = props;
-  console.log(information, "resume");
+  const { setShow, info1, info2, info3, setPart1 } = props;
+  // console.log(information, "resume");
 
   const componentRef = useRef();
 
   const handelprint = useReactToPrint({
     content: () => componentRef.current,
   });
+  const build = () => {
+    setShow(false);
+    setPart1(true);
+  };
 
   return (
-    <div className="p-5 m-3 w-2/5  h-screen  bg-white " ref={componentRef}>
-      <div className="flex justify-center font-bold text-center text-blue-600 text-3xl">
-        Resume
-      </div>
-      <div className="body">
-        <div className="name flex justify-end p-1 font-semibold text-black  ">
-          Name: &nbsp;<div className="text-gray-500">{information?.name}</div>
-        </div>
+    <div>
+      <div className="p-10 m-3  border-2 rounded-lg " ref={componentRef}>
+        {/* Head part */}
+        {/* Head part */}
+        {/* Head part */}
+        {/* Head part */}
 
-        <div className="email flex p-0 justify-end font-semibold text-black ">
-          Email: &nbsp;{" "}
-          <div className="text-gray-500">{information?.email}</div>
-        </div>
-        <div className="contact flex p-1 justify-end font-semibold text-black">
-          Contact: &nbsp;{" "}
-          <div className="text-gray-500">{information?.phone}</div>
-        </div>
-        <div className="contact flex font-semibold p-2 justify-start text-black">
-          Github: &nbsp; <div className="text-gray-500">{information?.git}</div>
-        </div>
-        <div className="contact flex p-2 font-semibold  text-black">
-          Linkedin: &nbsp;{" "}
-          <div className="text-gray-500">{information?.lin}</div>
-        </div>
-
-        <div className="gender text-black p-2 font-semibold   flex">
-          Gender: &nbsp;{" "}
-          <div className="text-gray-500">{information?.gender}</div>
-        </div>
-
-        <div className="Address p-2 flex justify-start font-semibold  text-black ">
-          Address:
-          {information.address.map((item) => {
-            return (
-              <div className=" p-2 border-2 m-2 rounded-xl  ">
-                <div className="flex p-2 font-semibold ">
-                  Country: &nbsp;
-                  <div className="text-gray-500">{item.country}</div>
+        <div className="flex">
+          <div className="w-40 bg-slate-400 h-40 rounded-full">PIC</div>
+          <div className="p-6 bg-white">
+            <div className="text-5xl font-serif">{info1.name}</div>
+            <div className="m-2">
+              <div className="text-2xl text-orange-800 p-1 flex justify-start font-mono font-bold">
+                {" "}
+                {info1.designation}
+              </div>
+              <div className="flex justify-between">
+                <div className="text-sm flex">
+                  <div className="p-1 text-blue-500">
+                    <FaAt />
+                  </div>
+                  {info1.email}
                 </div>
-                <div className="flex p-2 font-semibold">
-                  City: &nbsp;
-                  <div className="text-gray-500 ">{item.city}</div>{" "}
-                </div>{" "}
-                <div className="flex p-2 font-semibold">
-                  Location: &nbsp;
-                  <div className="text-gray-500 ">{item.location}</div>
+                <div className="text-sm flex">
+                  <div className="p-1 text-blue-500">
+                    <FaPhoneAlt />
+                  </div>
+                  {info1.phone}
+                </div>
+                <div className="text-sm flex">
+                  <div className="p-1 text-blue-500">
+                    <FaGithub />
+                  </div>
+                  {info1.git}
+                </div>
+                <div className="text-sm flex">
+                  <div className="p-1 text-blue-500">
+                    <FaLinkedin />
+                  </div>
+                  {info1.lin}
                 </div>
               </div>
-            );
-          })}
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-row justify-around">
-        <button
-          className=" bg-blue-600 text-white rounded p-2 bottom-4 "
-          onClick={handelprint}>
-          Download
-        </button>
-        <button
-          className=" bg-blue-600 text-white rounded p-2 bottom-4 "
-          onClick={() => setShow(false)}>
-          Build New
-        </button>
+
+        {/* objective part */}
+        {/* objective part */}
+        {/* objective part */}
+        {/* objective part */}
+        <div>
+          <div className="text-2xl text-orange-800  flex justify-start font-mono font-bold">
+            {" "}
+            Objective
+          </div>{" "}
+          <div className="flex justify-start font-sans">{info1.objective}</div>
+        </div>
+        <br />
+        <hr />
+        <br />
+
+        {/* Education below  */}
+        {/* Education below  */}
+        {/* Education below  */}
+        {/* Education below  */}
+
+        <div>
+          <div className="text-2xl text-orange-800  flex justify-start font-mono font-bold">
+            Education
+          </div>{" "}
+          <div className="flex  font-sans">
+            {info3.education.map((item) => {
+              return (
+                <div className="m-2   w-44">
+                  <div className="flex justify-start font-semibold">
+                    {item.name}
+                  </div>
+                  <div className="flex justify-start text-blue-500">
+                    {item.collage}
+                  </div>
+                  <div className="flex justify-between ">
+                    <div className="flex text-sm">
+                      {/* <FaCalendarAlt className="p-1" /> */}
+                      {item.start}-{item.end}
+                    </div>
+                    <div className="flex text-sm">
+                      Score - {item.percentage}%
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <br />
+        <hr />
+        <br />
+
+        {/* Work below  */}
+        {/* Work below  */}
+        {/* Work below  */}
+        {/* Work below  */}
+
+        <div>
+          <div className="text-2xl text-orange-800  flex justify-start font-mono font-bold">
+            Work Experience
+          </div>
+          <div className="flex  font-sans">
+            {info2.work.map((item) => {
+              return (
+                <div className="m-2   w-44">
+                  <div className="flex justify-start font-semibold">
+                    {item.position}
+                  </div>
+                  <div className="flex justify-start text-blue-500">
+                    {item.company}
+                  </div>
+                  <div className="flex justify-start text-blue-500">
+                    <FaPaperclip className="p-1 text-xl" />
+                    <a href={item.certificate}>{item.certificate}</a>
+                  </div>
+
+                  <div className="flex justify-between ">
+                    <div className="flex text-sm">
+                      <FaCalendarAlt className="p-1 text-xl" />
+                      {item.start}-{item.end}
+                    </div>
+                    {/* <div className="flex text-sm">Score - {item.percentage}%</div/> */}
+                  </div>
+                  <div className="flex justify-between ">
+                    <div className="flex text-sm">
+                      <FaMapMarkerAlt className="p-1 text-xl" />
+                      {item.location}
+                    </div>
+                    {/* <div className="flex text-sm">Score - {item.percentage}%</div/> */}
+                  </div>
+                  <div>
+                    <div className="flex text-sm justify-start">
+                      <FaDotCircle className="p-1.5 text-xl" />
+                      <div>{item.description}</div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="flex flex-row justify-around">
+          <button
+            className=" bg-blue-600 text-white rounded p-2 bottom-4 "
+            onClick={handelprint}>
+            Download
+          </button>
+          <button
+            className=" bg-blue-600 text-white rounded p-2 bottom-4 "
+            onClick={() => build()}>
+            Build New
+          </button>
+        </div>
       </div>
     </div>
   );

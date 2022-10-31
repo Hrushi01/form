@@ -271,8 +271,8 @@ export default function Page(props) {
 
                   <button
                     type="submit"
-                    onClick={(values, actions) => {
-                      console.log("Submitted", props.values, information);
+                    onSubmit={() => {
+                      console.warn("Dd");
                     }}
                     className=" bg-blue-600 text-white rounded p-2 w-20">
                     Submit

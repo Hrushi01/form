@@ -4,8 +4,15 @@ import { part1 } from "../schema/schema1";
 import { FaArrowRight } from "react-icons/fa";
 
 function Part1(props) {
-  const { information, setPart1, setPart2, setPart3, setData, setInfoP1 } =
-    props;
+  const {
+    information,
+    setPart1,
+    setPart2,
+    setPart3,
+    setData,
+    setInfoP1,
+    handleNext,
+  } = props;
 
   const change = () => {
     console.log("changes");
@@ -19,8 +26,9 @@ function Part1(props) {
         <Formik
           initialValues={information}
           onSubmit={(values, actions) => {
-            console.log("submit clicked done");
-            change();
+            console.warn("Hrushikesh Part1 component");
+
+            handleNext();
           }}
           validationSchema={part1}>
           {(props) => (

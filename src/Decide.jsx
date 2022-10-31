@@ -8,7 +8,7 @@ import Progress from "./stepper/Progress";
 
 function Decide() {
   const [show, setShow] = useState(false);
-  const [part1, setPart1] = useState(true);
+  const [part1, setPart1] = useState(false);
   const [part2, setPart2] = useState(false);
   const [part3, setPart3] = useState(false);
   const [data1, setData] = useState({});
@@ -55,7 +55,7 @@ function Decide() {
   return (
     <>
       <div className=" flex  justify-center text-center">
-        {/* <Progress
+        <Progress
           setPart1={setPart1}
           setPart2={setPart2}
           setPart3={setPart3}
@@ -64,7 +64,7 @@ function Decide() {
           info2={infop2}
           info3={infop3}
           setShow={setShow}
-        />{" "} */}
+        />{" "}
         {show ? (
           <Resume
             info1={infop1}

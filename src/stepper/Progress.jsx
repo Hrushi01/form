@@ -117,7 +117,7 @@ function getStepContent(
       );
     case 1:
       return (
-        <form class="form-group">
+        <form>
           <label>High School Percentage</label>
           <input type="number" placeholder="High School Percentage"></input>
           <br></br>
@@ -127,7 +127,7 @@ function getStepContent(
       );
     case 2:
       return (
-        <form class="form-group">
+        <form>
           <label>Permanent Address</label>
           <input type="text" placeholder="Permanent Address"></input>
           <br></br>

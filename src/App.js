@@ -1,12 +1,9 @@
-import { useState } from "react";
-import Decide from "./Decide";
+import Home from "./Home";
 
 function App() {
   return (
     <>
-      <div>
-        <Decide />
-      </div>
+      <Home />
     </>
   );
 }

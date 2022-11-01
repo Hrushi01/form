@@ -18,7 +18,7 @@ function getSteps() {
   return [
     <b style={{ color: "purple" }}>'Enter Personal Details'</b>,
     <b style={{ color: "purple" }}>'Enter Education Details'</b>,
-    <b style={{ color: "purple" }}>'Enter Address'</b>,
+    <b style={{ color: "purple" }}>'Enter Education'</b>,
   ];
 }
 
@@ -43,7 +43,6 @@ export default function Progress(props) {
 
   return (
     <div>
-      <h1>GeeksforGeeks Stepper Form</h1>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((label, index) => (
           <Step key={label}>

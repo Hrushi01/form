@@ -65,7 +65,7 @@ function Decide() {
           info3={infop3}
           setShow={setShow}
         />{" "}
-        {show ? (
+        {/* {show ? (
           <Resume
             info1={infop1}
             info2={infop2}
@@ -118,7 +118,7 @@ function Decide() {
               <></>
             )}
           </div>
-        )}
+        )} */}
       </div>
     </>
   );

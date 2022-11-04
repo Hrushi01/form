@@ -2,7 +2,6 @@ import React from "react";
 import { Form, Formik, Field, ErrorMessage, FieldArray } from "formik";
 import { part1 } from "../schema/schema1";
 import { FaArrowRight, FaPlus } from "react-icons/fa";
-import { RiDeleteBin5Line } from "react-icons/ai";
 
 function Part1(props) {
   const { information, setPart2, setPart3, setInfoP2 } = props;

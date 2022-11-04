@@ -144,8 +144,8 @@ import StepConnector, {
 } from "@mui/material/StepConnector";
 
 import BasicInfo1 from "./parts/BasicInfo1";
-import BasicInfo2 from "./parts/BasicInfo2";
-import BasicInfo3 from "./parts/BasicInfo3";
+import WorkExp from "./parts/WorkExp";
+import Education from "./parts/Education";
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -185,22 +185,22 @@ const QontoStepIconRoot = styled("div")(({ theme, ownerState }) => ({
     fontSize: 18,
   },
   "& .QontoStepIcon-circle": {
-    width: 8,
-    height: 8,
+    width: 20,
+    height: 20,
     borderRadius: "50%",
-    backgroundColor: "currentColor",
+    backgroundColor: "",
   },
 }));
-
 function QontoStepIcon(props) {
   const { active, completed, className } = props;
+  const [a, setCount] = useState(1);
 
   return (
     <QontoStepIconRoot ownerState={{ active }} className={className}>
       {completed ? (
         <Check className="QontoStepIcon-completedIcon" />
       ) : (
-        <div className="QontoStepIcon-circle" />
+        <div className="QontoStepIcon-circle "></div>
       )}
     </QontoStepIconRoot>
   );
@@ -238,16 +238,15 @@ function ColorlibStepIcon(props) {
   const { active, completed, className } = props;
 
   const icons = {
-    1: <SettingsIcon />,
-    2: <GroupAddIcon />,
-    3: <VideoLabelIcon />,
+    1: "1",
+    2: "2",
+    3: "3",
   };
 
   return (
     <ColorlibStepIconRoot
       ownerState={{ completed, active }}
-      className={className}
-    >
+      className={className}>
       {icons[String(props.icon)]}
     </ColorlibStepIconRoot>
   );
@@ -261,12 +260,21 @@ ColorlibStepIcon.propTypes = {
 };
 
 const steps = [
-  "Select campaign settings",
-  "Create an ad group",
-  "Create an ad",
+  { num: 1, label: "Basic Information" },
+  { num: 2, label: "Work Experience" },
+  { num: 3, label: "Education" },
 ];
 
-export default function Home() {
+export default function Home(props) {
+  const {
+    basicinfo,
+    setBasicInfo,
+    workinfo,
+    setWorkInfo,
+    eduinfo,
+    setEduInfo,
+    setResume,
+  } = props;
   const [activeStep, setActiveStep] = useState(0);
   // const handleBack = () => {
   //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
@@ -281,26 +289,34 @@ export default function Home() {
     switch (activeStep) {
       case 1:
         return (
-          <BasicInfo2
+          <WorkExp
             steps={steps}
             activeStep={activeStep}
             setActiveStep={setActiveStep}
+            workinfo={workinfo}
+            setWorkInfo={setWorkInfo}
           />
         );
       case 2:
         return (
-          <BasicInfo3
+          <Education
             steps={steps}
             activeStep={activeStep}
             setActiveStep={setActiveStep}
+            eduinfo={eduinfo}
+            setEduInfo={setEduInfo}
+            setResume={setResume}
           />
         );
+
       default:
         return (
           <BasicInfo1
             steps={steps}
             activeStep={activeStep}
             setActiveStep={setActiveStep}
+            setBasicInfo={setBasicInfo}
+            basicinfo={basicinfo}
           />
         );
     }
@@ -310,11 +326,12 @@ export default function Home() {
       <Stepper
         alternativeLabel
         activeStep={activeStep}
-        connector={<QontoConnector />}
-      >
+        connector={<QontoConnector />}>
         {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel StepIconComponent={QontoStepIcon}>{label}</StepLabel>
+          <Step key={label.label}>
+            <StepLabel StepIconComponent={ColorlibStepIcon}>
+              {label.label}
+            </StepLabel>
           </Step>
         ))}
       </Stepper>

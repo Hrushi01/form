@@ -1,9 +1,8 @@
-import Home from "./Home";
-
+import Display from "./Display";
 function App() {
   return (
     <>
-      <Home />
+      <Display />
     </>
   );
 }

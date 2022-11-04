@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef, useMemo, useEffect } from "react";
+import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import {
   FaAt,
@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 
 function Resume(props) {
-  const { setShow, info1, info2, info3, setPart1 } = props;
+  const { basicinfo, workinfo, eduinfo, setResume } = props;
   // console.log(information, "resume");
 
   const componentRef = useRef();
@@ -22,13 +22,14 @@ function Resume(props) {
     content: () => componentRef.current,
   });
   const build = () => {
-    setShow(false);
-    setPart1(true);
+    setResume(false);
   };
 
   return (
-    <div>
-      <div className="p-10 m-3  border-2 rounded-lg " ref={componentRef}>
+    <div className="flex justify-center text-center align-middle w-1/2  ">
+      <div
+        className="p-10 m-3 w-screen  border-2 rounded-lg "
+        ref={componentRef}>
         {/* Head part */}
         {/* Head part */}
         {/* Head part */}
@@ -37,36 +38,36 @@ function Resume(props) {
         <div className="flex">
           <div className="w-40 bg-slate-400 h-40 rounded-full">PIC</div>
           <div className="p-6 bg-white">
-            <div className="text-5xl font-serif">{info1.name}</div>
+            <div className="text-5xl font-serif">{basicinfo.name}</div>
             <div className="m-2">
               <div className="text-2xl text-orange-800 p-1 flex justify-start font-mono font-bold">
                 {" "}
-                {info1.designation}
+                {basicinfo.designation}
               </div>
               <div className="flex justify-between">
                 <div className="text-sm flex">
                   <div className="p-1 text-blue-500">
                     <FaAt />
                   </div>
-                  {info1.email}
+                  {basicinfo.email}
                 </div>
                 <div className="text-sm flex">
                   <div className="p-1 text-blue-500">
                     <FaPhoneAlt />
                   </div>
-                  {info1.phone}
+                  {basicinfo.phone}
                 </div>
                 <div className="text-sm flex">
                   <div className="p-1 text-blue-500">
                     <FaGithub />
                   </div>
-                  {info1.git}
+                  {basicinfo.git}
                 </div>
                 <div className="text-sm flex">
                   <div className="p-1 text-blue-500">
                     <FaLinkedin />
                   </div>
-                  {info1.lin}
+                  {basicinfo.lin}
                 </div>
               </div>
             </div>
@@ -82,7 +83,9 @@ function Resume(props) {
             {" "}
             Objective
           </div>{" "}
-          <div className="flex justify-start font-sans">{info1.objective}</div>
+          <div className="flex justify-start font-sans">
+            {basicinfo.objective}
+          </div>
         </div>
         <br />
         <hr />
@@ -98,7 +101,7 @@ function Resume(props) {
             Education
           </div>{" "}
           <div className="flex  font-sans">
-            {info3.education.map((item) => {
+            {eduinfo.education.map((item) => {
               return (
                 <div className="m-2   w-44">
                   <div className="flex justify-start font-semibold">
@@ -136,7 +139,7 @@ function Resume(props) {
             Work Experience
           </div>
           <div className="flex  font-sans">
-            {info2.work.map((item) => {
+            {workinfo.work.map((item) => {
               return (
                 <div className="m-2   w-44">
                   <div className="flex justify-start font-semibold">
@@ -176,7 +179,7 @@ function Resume(props) {
           </div>
         </div>
 
-        <div className="flex flex-row justify-around">
+        <div className="flex flex-row justify-around mt-5">
           <button
             className=" bg-blue-600 text-white rounded p-2 bottom-4 "
             onClick={handelprint}>

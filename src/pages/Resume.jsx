@@ -87,13 +87,13 @@ function Resume(props) {
               </div>
             </div>
           </div>
-          <hr />
 
           {/* objective part */}
           {/* objective part */}
           {/* objective part */}
           {/* objective part */}
-          <div>
+          <div className="pt-2">
+            <hr />
             <div className="text-2xl text-slate-700  flex justify-start font-serif border-b-2 border-black">
               {" "}
               Career Objective

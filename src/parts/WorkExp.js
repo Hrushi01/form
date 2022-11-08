@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import { FieldArray } from "formik";
-import { workexpschema } from "../schema/schema1";
+import { workexpschema } from "../schema/schema";
 import { FaPlus } from "react-icons/fa";
 
 const WorkExp = ({ activeStep, setActiveStep, workinfo, setWorkInfo }) => {
@@ -221,7 +221,7 @@ const WorkExp = ({ activeStep, setActiveStep, workinfo, setWorkInfo }) => {
                                     <Field
                                       type="text"
                                       label="description"
-                                      name="description"
+                                      name={`work.${index}.description`}
                                       placeholder="Description"
                                       className=" p-2 m-1   rounded border-2 "
                                     />

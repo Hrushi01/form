@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Formik, Field, FieldArray } from "formik";
 import { FaPlus } from "react-icons/fa";
-import { educationschema } from "../schema/schema1";
+import { educationschema } from "../schema/schema";
 
 const Education = ({
   activeStep,

@@ -1,35 +1,35 @@
 import React from "react";
 import { useState } from "react";
-import Home from "./Home";
+import Home from "./stepper/Home";
 import Resume from "./pages/Resume";
 import { FaBuffer } from "react-icons/fa";
 
 function Display() {
   const [basicinfo, setBasicInfo] = useState({
     title: "Basic Information",
-    name: "Hrushikesh Ambike",
-    designation: "Frontend dev",
-    objective: "dummy",
-    email: "x@x.x",
-    phone: "1234567897",
+    name: "",
+    designation: "",
+    objective: "",
+    email: "",
+    phone: "",
     image: "",
     file: null,
 
-    git: "https://github.com/",
-    lin: "https://github.com/",
+    git: "",
+    lin: "",
   });
   const [workinfo, setWorkInfo] = useState({
     title: "Work Experience",
     skip: "",
     work: [
       {
-        position: "dummy",
-        company: "dummy",
-        certificate: "https://github.com/",
-        location: "dummy",
-        start: "12-02-2022",
-        end: "12-03-2022",
-        description: "dummy",
+        position: "",
+        company: "",
+        certificate: "",
+        location: "",
+        start: "",
+        end: "",
+        description: "",
       },
     ],
   });
@@ -38,11 +38,11 @@ function Display() {
     title: "Education",
     education: [
       {
-        name: "dummy",
-        collage: "dummy",
-        percentage: "75",
-        start: "12-02-2022",
-        end: "12-03-2022",
+        name: "",
+        collage: "",
+        percentage: "",
+        start: "",
+        end: "",
       },
     ],
   });

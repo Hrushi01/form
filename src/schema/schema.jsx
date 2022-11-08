@@ -13,7 +13,7 @@ export const basicinfoschema = Yup.object({
   name: Yup.string().min(2).max(25).required("Please enter your name"),
   email: Yup.string().email().required("Please enter your email"),
   designation: Yup.string().max(25).required("This field is required"),
-  objective: Yup.string().max(25).required("This field is required"),
+  objective: Yup.string().required("This field is required"),
 
   phone: Yup.string()
     .matches(phoneRegExp, "Phone number is not valid")

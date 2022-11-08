@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import { Formik, Form, Field } from "formik";
-import { basicinfoschema } from "../schema/schema1";
+import { basicinfoschema } from "../schema/schema";
+import { FaUpload } from "react-icons/fa";
+import { TiTick } from "react-icons/ti";
 
 const BasicInfo1 = (props) => {
   const { activeStep, setActiveStep, basicinfo, setBasicInfo } = props;
@@ -82,13 +84,26 @@ const BasicInfo1 = (props) => {
                     props.setFieldValue("file", e.target.files[0]);
                   }}
                 />
-                <button
-                  type="button"
-                  onClick={() => {
-                    fileref.current.click();
-                  }}>
-                  Upload
-                </button>
+                <div className="flex ">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      fileref.current.click();
+                    }}
+                    className="flex  bg-blue-600 text-white rounded p-2 w-fit m-2 pr-3">
+                    Upload &nbsp;
+                    <div className="pt-1">
+                      <FaUpload />
+                    </div>
+                  </button>
+                  {props.values.file ? (
+                    <div className="text-5xl pt-1 text-green-400">
+                      <TiTick className="" />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                </div>
               </div>
 
               {/* obj below  */}

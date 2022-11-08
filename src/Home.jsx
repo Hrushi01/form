@@ -322,21 +322,22 @@ export default function Home(props) {
     }
   };
   return (
-    <Stack sx={{ width: "100%" }} spacing={4}>
-      <Stepper
-        alternativeLabel
-        activeStep={activeStep}
-        connector={<QontoConnector />}>
-        {steps.map((label) => (
-          <Step key={label.label}>
-            <StepLabel StepIconComponent={ColorlibStepIcon}>
-              {label.label}
-            </StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-      {getStepperPage()}
-      {/* <Box sx={{ flex: "1 1 auto" }} />
+    <div className=" p-3 overflow-hidden ">
+      <Stack sx={{ width: "100%" }} spacing={4}>
+        <Stepper
+          alternativeLabel
+          activeStep={activeStep}
+          connector={<QontoConnector />}>
+          {steps.map((label) => (
+            <Step key={label.label}>
+              <StepLabel StepIconComponent={ColorlibStepIcon}>
+                {label.label}
+              </StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        {getStepperPage()}
+        {/* <Box sx={{ flex: "1 1 auto" }} />
       <div className="flex">
         <Button onClick={() => handleBack()} disabled={activeStep == 0}>
           Back
@@ -345,6 +346,7 @@ export default function Home(props) {
           {activeStep === steps.length - 1 ? "Finish" : "Next"}
         </Button>
       </div> */}
-    </Stack>
+      </Stack>
+    </div>
   );
 }

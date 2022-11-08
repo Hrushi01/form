@@ -7,17 +7,18 @@ function Display() {
   const [basicinfo, setBasicInfo] = useState({
     title: "Basic Information",
     name: "Hrushikesh",
-    designation: "",
+    designation: "Frontend dev",
     objective: "dummy",
-    email: "",
+    email: "x@x.x",
     phone: "1234567897",
     image: "",
 
-    git: "dummy",
-    lin: "dummy",
+    git: "https://github.com/",
+    lin: "https://github.com/",
   });
   const [workinfo, setWorkInfo] = useState({
     title: "Work Experience",
+    skip: "",
     work: [
       {
         position: "dummy",
@@ -47,7 +48,7 @@ function Display() {
   const [resume, setResume] = useState(false);
 
   return (
-    <div className="flex justify-center">
+    <div className="">
       {resume ? (
         <Resume
           basicinfo={basicinfo}

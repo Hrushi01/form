@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
-import { part1 } from "../schema/schema1";
+import { basicinfoschema } from "../schema/schema1";
 
 const BasicInfo1 = (props) => {
   const { activeStep, setActiveStep, basicinfo, setBasicInfo } = props;
@@ -12,10 +12,8 @@ const BasicInfo1 = (props) => {
       <div className="flex  justify-center text-center w-screen ">
         <Formik
           initialValues={basicinfo}
-          // validationSchema={part1}
-          onSubmit={() => {
-            setActiveStep((step) => step + 1);
-          }}>
+          validationSchema={basicinfoschema}
+          onSubmit={onSubmit}>
           {(props) => (
             <Form className="flex flex-col justify-center text-center align-middle border-2 rounded-lg border-gray-400 w-1/2 p-2">
               <div className="flex flex-col">
@@ -79,11 +77,6 @@ const BasicInfo1 = (props) => {
                   placeholder="image"
                   className=" p-3 m-1   rounded border-2 "
                 />
-                {/* {
-                  (console.log("hdhd", typeof props.values.image),
-                  props.values.image)
-                }
-                <img src={props.values.image} alt="img" /> */}
               </div>
 
               {/* obj below  */}
@@ -107,8 +100,6 @@ const BasicInfo1 = (props) => {
                   <p className=" text-red-600">{props.errors.objective}</p>
                 ) : null}
               </div>
-
-              {/* kdjdj */}
 
               {/* Email and Phone Below  */}
               {/* Email and Phone Below  */}
@@ -152,7 +143,7 @@ const BasicInfo1 = (props) => {
 
               <div className="flex justify-between">
                 <div className="w-1/2 flex flex-col">
-                  <label className="flex justify-start pl-1">Contact:</label>
+                  <label className="flex justify-start pl-1">Github:</label>
 
                   <Field
                     type="text"
@@ -165,7 +156,7 @@ const BasicInfo1 = (props) => {
                   ) : null}
                 </div>
                 <div className="w-1/2 flex flex-col">
-                  <label className="flex justify-start pl-1">Contact:</label>
+                  <label className="flex justify-start pl-1">Linkdin:</label>
 
                   <Field
                     type="text"

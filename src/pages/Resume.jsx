@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useReactToPrint } from "react-to-print";
 import {
   FaAt,
@@ -16,6 +16,14 @@ function Resume(props) {
   const { basicinfo, workinfo, eduinfo, setResume } = props;
   // console.log(information, "resume");
 
+  const [pic, setpic] = useState(null);
+
+  const reader = new FileReader();
+  reader.readAsDataURL(basicinfo.file);
+  reader.onload = () => {
+    setpic(reader.result);
+  };
+
   const componentRef = useRef();
 
   const handelprint = useReactToPrint({
@@ -27,9 +35,9 @@ function Resume(props) {
 
   return (
     <div className="w-screen flex justify-center">
-      <div className="flex justify-center text-center align-middle w-1/2  ">
+      <div className="flex justify-center text-center align-middle w-1/2   ">
         <div
-          className="p-10 m-3 w-screen  border-2 rounded-lg "
+          className="p-10 m-3 w-screen  border-2 rounded-lg bg-white"
           ref={componentRef}>
           {/* Head part */}
           {/* Head part */}
@@ -37,14 +45,19 @@ function Resume(props) {
           {/* Head part */}
 
           <div className="flex">
-            <div className="w-40 bg-slate-400 h-40 rounded-full">PIC</div>
-            <div className="p-6 bg-white">
-              <div className="text-5xl font-serif">{basicinfo.name}</div>
+            <div className="w-40 bg-slate-400 h-40 rounded-full overflow-hidden">
+              <img src={pic} alt="profile " sizes="fit"></img>
+            </div>
+            <div className="p-6 bg-white text-slate-700">
+              <div className="text-4xl text-slate-700 font-serif flex justify-start">
+                {basicinfo.name}
+              </div>
+
               <div className="m-2">
-                <div className="text-2xl text-orange-800 p-1 flex justify-start font-mono font-bold">
-                  {" "}
+                <div className="text-2xl  p-1 flex justify-start font-sans font-semibold">
                   {basicinfo.designation}
                 </div>
+
                 <div className="flex justify-between">
                   <div className="text-sm flex">
                     <div className="p-1 text-blue-500">
@@ -74,15 +87,16 @@ function Resume(props) {
               </div>
             </div>
           </div>
+          <hr />
 
           {/* objective part */}
           {/* objective part */}
           {/* objective part */}
           {/* objective part */}
           <div>
-            <div className="text-2xl text-orange-800  flex justify-start font-mono font-bold">
+            <div className="text-2xl text-slate-700  flex justify-start font-serif border-b-2 border-black">
               {" "}
-              Objective
+              Career Objective
             </div>{" "}
             <div className="flex justify-start font-sans">
               {basicinfo.objective}
@@ -90,7 +104,6 @@ function Resume(props) {
           </div>
           <br />
           <hr />
-          <br />
 
           {/* Education below  */}
           {/* Education below  */}
@@ -98,14 +111,13 @@ function Resume(props) {
           {/* Education below  */}
 
           <div>
-            <div className="text-2xl text-orange-800  flex justify-start font-mono font-bold">
+            <div className="text-2xl text-slate-700  flex justify-start font-serif border-b-2 border-black">
               Education
             </div>{" "}
             <div className="grid grid-cols-2  font-sans  ">
               {eduinfo.education.map((item) => {
                 return (
                   <div className="   p-2  " key={item.name}>
-                    {console.log("item", item)}
                     <div className="flex justify-start font-semibold">
                       {item.name}
                     </div>
@@ -127,7 +139,6 @@ function Resume(props) {
 
           <br />
           <hr />
-          <br />
 
           {/* Work below  */}
           {/* Work below  */}
@@ -136,7 +147,7 @@ function Resume(props) {
 
           {workinfo.skip === "No" ? (
             <div>
-              <div className="text-2xl text-orange-800  flex justify-start font-mono font-bold">
+              <div className="text-2xl text-slate-700  flex justify-start font-serif border-b-2 border-black">
                 Work Experience
               </div>
               <div className="grid grid-cols-2  font-sans">

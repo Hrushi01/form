@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Formik, Form, Field } from "formik";
 import { basicinfoschema } from "../schema/schema1";
 
 const BasicInfo1 = (props) => {
   const { activeStep, setActiveStep, basicinfo, setBasicInfo } = props;
+  const fileref = useRef(null);
+
   const onSubmit = () => {
     setActiveStep((step) => step + 1);
   };
@@ -70,13 +72,23 @@ const BasicInfo1 = (props) => {
 
               <div className="flex flex-col justify-start">
                 <label className="flex justify-start pl-1">Picture:</label>
-                <Field
+                <input
+                  ref={fileref}
+                  hidden
                   type="file"
                   label="Image"
-                  name="image"
-                  placeholder="image"
                   className=" p-3 m-1   rounded border-2 "
+                  onChange={(e) => {
+                    props.setFieldValue("file", e.target.files[0]);
+                  }}
                 />
+                <button
+                  type="button"
+                  onClick={() => {
+                    fileref.current.click();
+                  }}>
+                  Upload
+                </button>
               </div>
 
               {/* obj below  */}

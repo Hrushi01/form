@@ -45,9 +45,11 @@ function Resume(props) {
           {/* Head part */}
 
           <div className="flex">
-            <div className="w-40 bg-slate-400 h-40 rounded-full overflow-hidden">
-              <img src={pic} alt="profile " sizes="fit"></img>
-            </div>
+            <div
+              className="profile w-40 bg-slate-400 h-40 rounded-full overflow-hidden  "
+              style={{
+                backgroundImage: `url(${pic})`,
+              }}></div>
             <div className="p-6 bg-white text-slate-700">
               <div className="text-4xl text-slate-700 font-serif flex justify-start">
                 {basicinfo.name}

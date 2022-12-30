@@ -141,6 +141,8 @@ export default function Home(props) {
     eduinfo,
     setEduInfo,
     setResume,
+    picture,
+    setpicture,
   } = props;
   const [activeStep, setActiveStep] = useState(0);
   const getStepperPage = () => {
@@ -175,6 +177,8 @@ export default function Home(props) {
             setActiveStep={setActiveStep}
             setBasicInfo={setBasicInfo}
             basicinfo={basicinfo}
+            picture={picture}
+            setpicture={setpicture}
           />
         );
     }

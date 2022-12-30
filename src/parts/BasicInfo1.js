@@ -3,10 +3,20 @@ import { Formik, Form, Field } from "formik";
 import { basicinfoschema } from "../schema/schema";
 import { FaUpload } from "react-icons/fa";
 import { TiTick } from "react-icons/ti";
+import { FaCameraRetro } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
 const BasicInfo1 = (props) => {
-  const { activeStep, setActiveStep, basicinfo, setBasicInfo } = props;
+  const {
+    activeStep,
+    setActiveStep,
+    basicinfo,
+    setBasicInfo,
+    setpicture,
+    picture,
+  } = props;
   const fileref = useRef(null);
+  const img = useRef(null);
 
   const onSubmit = () => {
     setActiveStep((step) => step + 1);
@@ -71,38 +81,59 @@ const BasicInfo1 = (props) => {
               {/* pic below  */}
               {/* pic below  */}
               {/* pic below  */}
+              {/* pic below  */}
+              {/* pic below  */}
+              <div className="flex flex-col justify-start  p-2 ">
+                <label className="flex justify-start ">Profile Picture:</label>
 
-              <div className="flex flex-col justify-start">
-                <label className="flex justify-start pl-1">Picture:</label>
-                <input
-                  ref={fileref}
-                  hidden
-                  type="file"
-                  label="Image"
-                  className=" p-3 m-1   rounded border-2 "
-                  onChange={(e) => {
-                    props.setFieldValue("file", e.target.files[0]);
-                  }}
-                />
-                <div className="flex ">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      fileref.current.click();
+                <div className="flex  w-2/4 ">
+                  <div className="flex flex-col w-20 h-20 relative ">
+                    <img
+                      src={
+                        picture
+                          ? picture
+                          : "https://via.placeholder.com/150.png?text=Logo"
+                      }
+                      alt="img"
+                      className="w-full h-full rounded-full shadow-md"
+                    />
+                    <div className="absolute bottom-0 right-0 rounded-full z-10 p-1 bg-white items-center justify-center flex">
+                      <div
+                        className="bg-black p-1 rounded-full cursor-pointer "
+                        onClick={() => {
+                          img.current.click();
+                        }}>
+                        <FaCameraRetro
+                          color={"white"}
+                          width="20px"
+                          height="20px"
+                        />
+                      </div>
+                    </div>
+                    {picture ? (
+                      <div className="absolute top-0 right-0 rounded-full z-10   bg-transparent items-center justify-center flex">
+                        <div
+                          className="  rounded-full cursor-pointer text-2xl bg-white p-0.5 "
+                          onClick={() => {
+                            setpicture(null);
+                          }}>
+                          <MdDeleteForever color={"red"} />
+                        </div>
+                      </div>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                  <input
+                    ref={img}
+                    type="file"
+                    hidden
+                    accept="image/*"
+                    onChange={(e) => {
+                      let pic = URL.createObjectURL(e.target.files[0]);
+                      setpicture(pic);
                     }}
-                    className="flex  bg-blue-600 text-white rounded p-2 w-fit m-2 pr-3">
-                    Upload &nbsp;
-                    <div className="pt-1">
-                      <FaUpload />
-                    </div>
-                  </button>
-                  {props.values.file ? (
-                    <div className="text-5xl pt-1 text-green-400">
-                      <TiTick className="" />
-                    </div>
-                  ) : (
-                    <></>
-                  )}
+                  />
                 </div>
               </div>
 
@@ -206,11 +237,13 @@ const BasicInfo1 = (props) => {
                 </button>
                 <button
                   type="submit"
+                  onClick={() => {
+                    setBasicInfo(props.values);
+                  }}
                   className="bg-blue-600 text-white rounded p-2 w-fit m-2 pr-3">
                   Next
                 </button>
               </div>
-              {setBasicInfo(props.values)}
             </Form>
           )}
         </Formik>

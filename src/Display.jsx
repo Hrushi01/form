@@ -48,6 +48,7 @@ function Display() {
   });
 
   const [resume, setResume] = useState(false);
+  const [picture, setpicture] = useState(false);
 
   return (
     <div>
@@ -60,7 +61,7 @@ function Display() {
           Create and Download your Resume for free Now!!
         </div>
       </div>
-      <div className="bg-indigo-50">
+      <div className="bg-indigo-50 h-screen overflow-scroll overflow-x-hidden">
         {resume ? (
           <div>
             <div className="flex justify-center font-serif align-middle text-2xl">
@@ -71,6 +72,8 @@ function Display() {
               eduinfo={eduinfo}
               workinfo={workinfo}
               setResume={setResume}
+              picture={picture}
+              setpicture={setpicture}
             />
           </div>
         ) : (
@@ -82,6 +85,8 @@ function Display() {
             setBasicInfo={setBasicInfo}
             setEduInfo={setEduInfo}
             setResume={setResume}
+            picture={picture}
+            setpicture={setpicture}
           />
         )}
       </div>

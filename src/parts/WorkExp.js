@@ -272,10 +272,13 @@ const WorkExp = ({ activeStep, setActiveStep, workinfo, setWorkInfo }) => {
               </button>
               <button
                 type="submit"
+                onClick={() => {
+                  setWorkInfo(props.values);
+                }}
                 className="bg-blue-600 text-white rounded p-2 w-fit m-2 pr-3">
                 Next
               </button>
-              {setWorkInfo(props.values)}
+              {}
             </div>
           </Form>
         )}

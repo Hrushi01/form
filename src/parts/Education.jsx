@@ -203,12 +203,15 @@ const Education = ({
               </button>
               <button
                 type="submit"
+                onClick={() => {
+                  setEduInfo(props.values);
+                }}
                 className="bg-blue-600 text-white rounded p-2 w-fit m-2 pr-3">
                 Finish
               </button>
             </div>
 
-            {setEduInfo(props.values)}
+            {}
           </Form>
         )}
       </Formik>

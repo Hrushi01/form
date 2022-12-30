@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
 import { Formik, Form, Field } from "formik";
 import { basicinfoschema } from "../schema/schema";
-import { FaUpload } from "react-icons/fa";
-import { TiTick } from "react-icons/ti";
+
 import { FaCameraRetro } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 
@@ -15,7 +14,6 @@ const BasicInfo1 = (props) => {
     setpicture,
     picture,
   } = props;
-  const fileref = useRef(null);
   const img = useRef(null);
 
   const onSubmit = () => {
